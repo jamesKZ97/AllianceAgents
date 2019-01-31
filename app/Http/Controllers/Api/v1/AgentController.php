@@ -59,7 +59,13 @@ class AgentController extends Controller
            'location'            => 'required|string|max:255',
            'phone_num_1'         => 'required|string|max:255',
            'email'               => 'required|string|max:255',
-           'company_name'        => 'required|string|max:255'
+           'company_name'        => 'required|string|max:255',
+           'company_address'     => 'required|string|max:255',
+           'client_testimonial'  => 'required|string',
+           'year_of_exp'         => 'required|integer|max:255',
+           'person_recommended'  => 'required|string|max:255',
+           'pos_of_person_recommended' => 'required|string|max:255',
+           'personal_description'=>'required|string'
          ]);
 
          if ($validator->fails()) {
@@ -77,7 +83,13 @@ class AgentController extends Controller
         $agent->email = $request->input('email');
         $agent->company_name = $request->input('company_name');
         $agent->about_the_company = $request->input('about_the_company');
-
+        $agent->company_address = $request->input('company_address');
+        $agent->client_testimonial = $request->input('client_testimonial');
+        $agent->year_of_exp = $request->input('year_of_exp');
+        $agent->person_recommended = $request->input('person_recommended');
+        $agent->pos_of_person_recommended = $request->input('pos_of_person_recommended');
+        $agent->personal_description = $request->input('personal_description');
+ 
         $agent->save();
 
         return response()->json(['message' => 'Success!'],200);
@@ -123,35 +135,57 @@ class AgentController extends Controller
     {
 
          $agent = Agent::find($id);
-
         
-         $validator = Validator::make($request->all(),
-        [ 
-            'location'           => 'required|string|max:255',
-            'phone_num_1'        => 'required|string|max:255',
-            'email'              => 'required|string|max:255',
-            'company_name'       => 'required|string|max:255'
-        
+        $validator = Validator::make($request->all(),
+         [
+           'location'            => 'required|string|max:255',
+           'phone_num_1'         => 'required|string|max:255',
+           'email'               => 'required|string|max:255',
+           'company_name'        => 'required|string|max:255',
+           'company_address'     => 'required|string|max:255',
+           'client_testimonial'  => 'required|string|max:255',
+           'year_of_exp'         => 'required|int|max:255',
+           'person_recommended'  => 'required|string|max:255',
+           'pos_of_person_recommended' => 'required|string|max:255',
+           'personal_description'=>'required|string|max:255'
          ]);
-
-
-         if ($validator->fails()) {
-             return respondWithValidationError($validator);
-         }
+        if ($validator->fails()) {
+            return respondWithValidationError($validator);
+        }
          
-         if($request->input('logo')!= null){
+        if($request->input('logo')!= null){
             $agent->logo = $request->input('logo');
-         }
-         $agent->location = $request->input('location');
-         $agent->phone_num_1 = $request->input('phone_num_1');
-         if($request->input('phone_num_2')!= null){
+        }
+        
+            $agent->location = $request->input('location');
+
+            $agent->phone_num_1 = $request->input('phone_num_1');
+        
+         
+        if($request->input('phone_num_2')!= null){
            $agent->phone_num_2 = $request->input('phone_num_2');
         }
-         $agent->email = $request->input('email');
-         $agent->company_name = $request->input('company_name');
-         if($request->input('about_the_company') != null){
+
+           $agent->email = $request->input('email');
+        
+            $agent->company_name = $request->input('company_name');
+        
+        if($request->input('about_the_company') != null){
             $agent->about_the_company = $request->input('about_the_company');
         }
+
+            $agent->company_address = $request->input('company_address');
+
+            $agent->client_testimonial = $request->input('client_testimonial');
+
+            $agent->year_of_exp = $request->input('year_of_exp');
+
+            $agent->person_recommended = $request->input('person_recommended');
+
+            $agent->pos_of_person_recommended = $request->input('pos_of_person_recommended');
+
+            $agent->personal_description = $request->input('personal_description');
+
          $agent->save();
 
          return $this->agentsService->transform($agent);
