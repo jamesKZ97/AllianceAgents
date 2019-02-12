@@ -38,7 +38,8 @@ class AgentsService extends TransformerService{
 			'person_recommended' => $agent->person_recommended,
 			'pos_of_person_recommended' => $agent->pos_of_person_recommended,
 			'personal_description' => $agent->personal_description,
-			'photos' => $this->photoService->transformCollection($agent->photos)
+			'photos' => $this->photoService->transformCollection($agent->photos),
+			'photo' => $agent->photo
 		];
 
 		return $payload;
