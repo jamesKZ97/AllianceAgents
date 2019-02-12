@@ -23,13 +23,13 @@ $factory->define(App\Agent::class, function (Faker $faker) {
         'phone_num_2' => $faker->e164PhoneNumber,
         'email' => $faker->unique()->email,
         'company_name' => $faker->company,
-        'about_the_company' => $faker->text,
+        'about_the_company' => $faker->text(50),
         'company_address' => $faker->unique()->address,
-        'client_testimonial' => $faker->text,
+        'client_testimonial' => $faker->text(50),
         'year_of_exp' => $faker->randomDigit,
         'person_recommended' => $faker->name,
         'pos_of_person_recommended' => $faker->jobTitle,
-        'personal_description' => $faker->text
+        'personal_description' => $faker->text(50)
 
     ];
 });
