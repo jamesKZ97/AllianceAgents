@@ -24,18 +24,14 @@ $factory->define(App\Agent::class, function (Faker $faker) {
         'email' => $faker->unique()->email,
         'company_name' => $faker->company,
         'about_the_company' => $faker->text,
+        'company_address' => $faker->unique()->address,
+        'client_testimonial' => $faker->text,
+        'year_of_exp' => $faker->randomDigit,
+        'person_recommended' => $faker->name,
+        'pos_of_person_recommended' => $faker->jobTitle,
+        'personal_description' => $faker->text
 
     ];
 });
 
-
-/*$agent->agent_id = $request->input('agent_id');
-        $agent->name = $request->input('name');
-        $agent->logo = $request->input('logo');
-        $agent->location = $request->input('location');
-        $agent->phone_num_1 = $request->input('phone_num_1');
-        $agent->phone_num_2 = $request->input('phone_num_2');
-        $agent->email = $request->input('email');
-        $agent->company_name = $request->input('company_name');
-        $agent->about_the_company = $request->input('about_the_company');
 

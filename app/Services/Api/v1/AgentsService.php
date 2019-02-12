@@ -32,6 +32,12 @@ class AgentsService extends TransformerService{
 			'email' => $agent->email,
 			'company_name' => $agent->company_name,
 			'about_the_company' => $agent->about_the_company,
+			'company_address' => $agent->company_address,
+			'client_testimonial' => $agent->client_testimonial,
+			'year_of_exp' => $agent->year_of_exp,
+			'person_recommended' => $agent->person_recommended,
+			'pos_of_person_recommended' => $agent->pos_of_person_recommended,
+			'personal_description' => $agent->personal_description,
 			'photos' => $this->photoService->transformCollection($agent->photos)
 		];
 
@@ -40,18 +46,3 @@ class AgentsService extends TransformerService{
 }
 
 
-// function __construct(AgentsService $agentsService){
-//             $this->agentsService = $agentsService;
-//     }
-
-//     public function index(Request $request)
-//     {
-//         if ($request->has('agent_id')) {
-//             $agentID = $request->agent_id;
-//         }
-    
-//         $agent = Agent::where('agent_id',$agentID)->get();
-//         // dd($agent);
-
-//         return $this->agentsService->transformCollection($agent);
-//     
