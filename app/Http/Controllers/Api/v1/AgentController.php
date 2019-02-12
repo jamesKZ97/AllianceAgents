@@ -89,6 +89,7 @@ class AgentController extends Controller
         $agent->person_recommended = $request->input('person_recommended');
         $agent->pos_of_person_recommended = $request->input('pos_of_person_recommended');
         $agent->personal_description = $request->input('personal_description');
+        //$agent->photo = $request->input('photo');
  
         $agent->save();
 
