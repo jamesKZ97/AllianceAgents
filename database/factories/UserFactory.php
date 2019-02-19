@@ -28,6 +28,7 @@ $factory->define(App\Agent::class, function (Faker $faker) {
         'client_testimonial' => $faker->text(50),
         'year_of_exp' => $faker->randomDigit,
         'person_recommended' => $faker->name,
+        'quote' => $faker->text(50),
         'pos_of_person_recommended' => $faker->jobTitle,
         'personal_description' => $faker->text(50)
 
