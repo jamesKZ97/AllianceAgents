@@ -8,7 +8,7 @@ class Agent extends Model
 {
 
 	protected $table = 'agents';
-	protected $fillable = ['agent_id','name','logo','location','phone_num_1','phone_num_2','email','company_name','about_the_company'];
+	protected $fillable = ['agent_id','name','logo','location','phone_num_1','phone_num_2','email','company_name','about_the_company','company_address','client_testimonial','year_of_exp','person_recommended','pos_of_person_recommended','personal_description','photo','quote'];
     public function photos()
     {
         return $this->hasMany('App\Photo');
@@ -16,13 +16,3 @@ class Agent extends Model
 }
  
 
-/* $table->increments('id');
-            $table->string('agent_id');
-            $table->string('name');
-            $table->string('logo')->nullable();
-            $table->string('location');
-            $table->string('phone_num_1');
-            $table->string('phone_num_2')->nullable();
-            $table->string('email');
-            $table->string('company_name');
-            $table->string('about_the_company')->nullable(

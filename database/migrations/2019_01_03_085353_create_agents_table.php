@@ -23,7 +23,13 @@ class CreateAgentsTable extends Migration
             $table->string('phone_num_2')->nullable();
             $table->string('email');
             $table->string('company_name');
-            $table->string('about_the_company')->nullable();
+            $table->text('about_the_company')->nullable();
+            $table->string('company_address');
+            $table->text('client_testimonial');
+            $table->integer('year_of_exp');
+            $table->string('person_recommended');
+            $table->string('pos_of_person_recommended');
+            $table->text('personal_description');
         
             $table->timestamps();
         });
