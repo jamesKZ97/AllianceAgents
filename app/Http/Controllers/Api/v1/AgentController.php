@@ -62,6 +62,7 @@ class AgentController extends Controller
            'company_name'        => 'required|string|max:255',
            'company_address'     => 'required|string|max:255',
            'client_testimonial'  => 'required|string',
+           'quote'               => 'required|string',
            'year_of_exp'         => 'required|integer|max:255',
            'person_recommended'  => 'required|string|max:255',
            'pos_of_person_recommended' => 'required|string|max:255',
@@ -86,6 +87,7 @@ class AgentController extends Controller
         $agent->company_address = $request->input('company_address');
         $agent->client_testimonial = $request->input('client_testimonial');
         $agent->year_of_exp = $request->input('year_of_exp');
+        $agent->quote = $request->input('quote');
         $agent->person_recommended = $request->input('person_recommended');
         $agent->pos_of_person_recommended = $request->input('pos_of_person_recommended');
         $agent->personal_description = $request->input('personal_description');
@@ -147,6 +149,7 @@ class AgentController extends Controller
            'client_testimonial'  => 'required|string|max:255',
            'year_of_exp'         => 'required|int|max:255',
            'person_recommended'  => 'required|string|max:255',
+           'quote'               => 'required|string|max:255',
            'pos_of_person_recommended' => 'required|string|max:255',
            'personal_description'=>'required|string|max:255'
          ]);
@@ -184,6 +187,8 @@ class AgentController extends Controller
             $agent->person_recommended = $request->input('person_recommended');
 
             $agent->pos_of_person_recommended = $request->input('pos_of_person_recommended');
+
+            $agent->quote = $request->input('quote');
 
             $agent->personal_description = $request->input('personal_description');
 
