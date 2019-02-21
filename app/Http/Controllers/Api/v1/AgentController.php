@@ -66,7 +66,10 @@ class AgentController extends Controller
            'year_of_exp'         => 'required|integer|max:255',
            'person_recommended'  => 'required|string|max:255',
            'pos_of_person_recommended' => 'required|string|max:255',
-           'personal_description'=>'required|string'
+           'personal_description'=>'required|string',
+           'company_quote'       =>'required|string|max:255',
+           'company_email'       =>'required|string|max:255',
+           'company_phone_num'   =>'required|string|max:255'
          ]);
 
          if ($validator->fails()) {
@@ -91,6 +94,9 @@ class AgentController extends Controller
         $agent->person_recommended = $request->input('person_recommended');
         $agent->pos_of_person_recommended = $request->input('pos_of_person_recommended');
         $agent->personal_description = $request->input('personal_description');
+        $agent->company_quote = $request->input('company_quote');
+        $agent->company_email = $request->input('company_email');
+        $agent->company_phone_num = $request->input('company_phone_num');
         //$agent->photo = $request->input('photo');
  
         $agent->save();
@@ -151,7 +157,10 @@ class AgentController extends Controller
            'person_recommended'  => 'required|string|max:255',
            'quote'               => 'required|string|max:255',
            'pos_of_person_recommended' => 'required|string|max:255',
-           'personal_description'=>'required|string|max:255'
+           'personal_description'=>'required|string|max:255',
+           'company_quote'       =>'required|string|max:255',
+           'company_email'       =>'required|string|max:255',
+           'company_phone_num'   =>'required|string|max:255'
          ]);
         if ($validator->fails()) {
             return respondWithValidationError($validator);
@@ -191,6 +200,12 @@ class AgentController extends Controller
             $agent->quote = $request->input('quote');
 
             $agent->personal_description = $request->input('personal_description');
+
+            $agent->company_quote = $request->input('company_quote');
+
+            $agent->company_email = $request->input('company_email');
+
+            $agent->company_phone_num = $request->input('company_phone_num');
 
          $agent->save();
 
