@@ -40,7 +40,11 @@ class AgentsService extends TransformerService{
 			'personal_description' => $agent->personal_description,
 			'quote' => $agent->quote,
 			'photos' => $this->photoService->transformCollection($agent->photos),
-			'photo' => $agent->photo
+			'photo' => $agent->photo,
+			'company_photo' => $agent->company_photo,
+			'company_quote' => $agent->company_quote,
+			'company_email' => $agent->company_email,
+			'company_phone_num' => $agent->company_phone_num
 		];
 
 		return $payload;
