@@ -30,7 +30,10 @@ $factory->define(App\Agent::class, function (Faker $faker) {
         'person_recommended' => $faker->name,
         'quote' => $faker->text(50),
         'pos_of_person_recommended' => $faker->jobTitle,
-        'personal_description' => $faker->text(50)
+        'personal_description' => $faker->text(50),
+        'company_quote' => $faker->text(50),
+        'company_email' => $faker->unique()->email,
+        'company_phone_num' => $faker->e164PhoneNumber
 
     ];
 });
